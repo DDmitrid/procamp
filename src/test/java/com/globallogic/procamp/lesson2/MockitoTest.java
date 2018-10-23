@@ -64,14 +64,24 @@ public class MockitoTest {
     @Test
     public void testMock() {
         mock.add(SECOND);
+        mock.clear();
+
+        InOrder inOrder = inOrder(mock);
+
+        inOrder.verify(mock).add(anyString());
+        inOrder.verify(mock).clear();
+
+//        verify(mock).clear();
+//        verify(mock).add(anyString());
 //        when(mock.get(anyInt())).thenReturn("first", "secondW");
 
 //        System.out.println(mock.get(0));
-        verify(mock, atLeast(2)).add(SECOND);
-        verify(mock, times(2)).add(SECOND);
-        verify(mock, atMost(2)).add(SECOND);
-        verify(mock, atLeastOnce()).add(SECOND);
-        verify(mock, never()).add(SECOND);
+//        verify(mock, atLeast(2)).add(SECOND);
+//        verify(mock, times(2)).add(SECOND);
+//        verify(mock, atMost(2)).add(SECOND);
+//        verify(mock, atLeastOnce()).add(SECOND);
+//        verify(mock, never()).add(SECOND);
+        
                 
     }
 //    public void testArgumentCaptor() {
