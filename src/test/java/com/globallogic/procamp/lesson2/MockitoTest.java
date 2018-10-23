@@ -55,6 +55,17 @@ public class MockitoTest {
     @Test
     public void testMock() {
         List<String> mock = mock(List.class);
+//        mock.add("first");
+
+        when(mock.get(anyInt())).thenReturn("first");
+        when(mock.add(MockitoHamcrest.argThat(isA(String.class)))).thenReturn(true);
+
+        System.out.println(mock.get(0));
+        System.out.println(mock.get(99));
+        System.out.println(mock.get(666));
+
+//        verify(mock).add("second");
+                
     }
     
     
