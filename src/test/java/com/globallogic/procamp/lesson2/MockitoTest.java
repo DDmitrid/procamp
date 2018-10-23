@@ -70,17 +70,14 @@ public class MockitoTest {
     @Test
     public void testMock() {
 
-//        List<String> spy = spy(new ArrayList<>());
-//        
-//        spy.add(SECOND);
-//        System.out.println(spy.get(0));
+        mock.add("");
+        mock.clear();
 
-        doAnswer(i -> {
-
-
-            return null;
-        })
-                        .when(mock).clear();
+        verify(mock,times(1)).clear();
+        verify(mock,times(1)).add(anyString());
+        
+        
+        verifyNoMoreInteractions(mock);
         
         
         
