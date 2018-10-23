@@ -52,6 +52,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class MockitoTest {
 
+    public static final String SECOND = "second";
     @Mock
     List mock;
 
@@ -62,57 +63,17 @@ public class MockitoTest {
 
     @Test
     public void testMock() {
+        mock.add(SECOND);
+//        when(mock.get(anyInt())).thenReturn("first", "secondW");
 
-        when(mock.get(anyInt())).thenReturn("first", "secondW");
-
-        System.out.println(mock.get(0));
-        System.out.println(mock.get(99));
-        System.out.println(mock.get(666));
-        System.out.println(mock.get(666));
-        System.out.println(mock.get(666));
-        System.out.println(mock.get(666));
-        System.out.println(mock.get(666));
-
-//        verify(mock).add("second");
+//        System.out.println(mock.get(0));
+        verify(mock, atLeast(2)).add(SECOND);
+        verify(mock, times(2)).add(SECOND);
+        verify(mock, atMost(2)).add(SECOND);
+        verify(mock, atLeastOnce()).add(SECOND);
+        verify(mock, never()).add(SECOND);
                 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 //    public void testArgumentCaptor() {
 //        mockList.add("test");
 //
