@@ -42,6 +42,7 @@ import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.hamcrest.MockitoHamcrest;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -55,6 +56,11 @@ public class MockitoTest {
     public static final String SECOND = "second";
     @Mock
     List mock;
+    
+    
+//    @Spy
+//    List<String> spy;
+    
 
 //    @Before
 //    public void setUp() throws Exception {
@@ -63,13 +69,21 @@ public class MockitoTest {
 
     @Test
     public void testMock() {
-        mock.add(SECOND);
-        mock.clear();
 
-        InOrder inOrder = inOrder(mock);
-
-        inOrder.verify(mock).add(anyString());
-        inOrder.verify(mock).clear();
+        List<String> spy = spy(new ArrayList<>());
+        
+        spy.add(SECOND);
+        System.out.println(spy.get(0));
+        
+        
+        
+//        mock.add(SECOND);
+//        mock.clear();
+//
+//        InOrder inOrder = inOrder(mock);
+//
+//        inOrder.verify(mock).add(anyString());
+//        inOrder.verify(mock).clear();
 
 //        verify(mock).clear();
 //        verify(mock).add(anyString());
