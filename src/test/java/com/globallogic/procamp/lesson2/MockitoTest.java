@@ -70,10 +70,17 @@ public class MockitoTest {
     @Test
     public void testMock() {
 
-        List<String> spy = spy(new ArrayList<>());
-        
-        spy.add(SECOND);
-        System.out.println(spy.get(0));
+//        List<String> spy = spy(new ArrayList<>());
+//        
+//        spy.add(SECOND);
+//        System.out.println(spy.get(0));
+
+        doAnswer(i -> {
+
+
+            return null;
+        })
+                        .when(mock).clear();
         
         
         
