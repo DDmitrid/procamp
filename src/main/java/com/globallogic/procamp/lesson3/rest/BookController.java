@@ -18,27 +18,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.globallogic.procamp.lesson3.rest.resource.AudioBookResource;
 import com.globallogic.procamp.lesson3.rest.resource.BookResource;
+import com.globallogic.procamp.lesson3.rest.resource.EbookResource;
 
 import io.swagger.annotations.ApiOperation;
-
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping(value = "books")
 public class BookController {
     
     @RequestMapping(
-                    method = {RequestMethod.GET, RequestMethod.PATCH, RequestMethod.POST}, //several methods
+                    /*method = {RequestMethod.GET, RequestMethod.PATCH, RequestMethod.POST},*/ //several methods
+                    method = RequestMethod.GET,
                     headers = {"key=value", "key_2=value_2"}, // specific header
                     value = {"/", "list", "all"} // books books/list books/all
                     
     )
     @ApiOperation(value = "Get list of books")
+
     public List<BookResource> getBooks(@RequestParam(required = false, defaultValue = "Joshua Bloch") String author) {
         return Arrays.asList(
-                        BookResource.builder().name ("Effective Java 2").author(author).build(),
-                        BookResource.builder().name("Refactoring").author("Martin Fowler").build(),
-                        BookResource.builder().name("Refactoring2 ").author("Martin Fowler").build()
+                        EbookResource.builder().name ("Effective Java 2").author(author).build(),
+                        EbookResource.builder().name("Refactoring").author("Martin Fowler").build(),
+                        EbookResource.builder().name("Refactoring2 ").author("Martin Fowler").build()
         );
     }
 
@@ -46,7 +51,7 @@ public class BookController {
     @GetMapping(value = "{id:\\d{6,8}}") //regexp for path variable  
     @ApiOperation(value = "Get book by id")
     public ResponseEntity<BookResource> getBook(@PathVariable long id) {
-        BookResource book = BookResource.builder()
+        BookResource book = EbookResource.builder()
                         .name("Head First Design Patterns")
                         .author("Bert Bates, Kathy Sierra, Eric Freeman, Elisabeth Robson")
                         .build();
@@ -60,6 +65,12 @@ public class BookController {
     }
 
     @PutMapping("{id}")
+    @ApiResponses( value = {
+                    @ApiResponse(code = 200, message = "AudioBookResource or EbookResource", response = BookResource.class),
+                    @ApiResponse(code = 200, message = "EbookResource", response = EbookResource.class),
+                    @ApiResponse(code = 200, message = "AudioBookResource", response = AudioBookResource.class),
+
+    })
     @ApiOperation(value = "Update book by id")
     public BookResource updateBook(@RequestBody BookResource book, @PathVariable String id) {
         return book;

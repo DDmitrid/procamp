@@ -1,5 +1,7 @@
 package com.globallogic.procamp.lesson3.rest.resource;
 
+import javax.sound.sampled.AudioInputStream;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,17 +14,18 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper = true)
-public class EbookResource extends BookResource {
+public class AudioBookResource extends BookResource{
     
-    private final BookType type = BookType.EBOOK;
-    private String url;
+    private String audio;
+    
+    private final BookType type = BookType.AUDIO;
 
     @Builder
-    public EbookResource(String url, String name, String author) {
+    public AudioBookResource(String audio, String name, String author) {
         super(name, author);
-        this.url = url;
+        this.audio = audio;
     }
-
+    
     @Override public BookType getBookType() {
         return type;
     }
