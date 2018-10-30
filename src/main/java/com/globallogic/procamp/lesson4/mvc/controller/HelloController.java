@@ -18,10 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value ="mvc")
 public class HelloController {
 
-    
     @GetMapping
-    public @ResponseBody String hello() {
-        return "hello2";
+    public String hello() {
+        return "hello";
     }
     
     
