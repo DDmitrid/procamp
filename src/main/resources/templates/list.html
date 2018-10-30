@@ -8,12 +8,12 @@
 <p th:text="#{procamp.hello}">123</p>
 
 <h1>Hello </h1>
-<!--<div sec:authorize="hasRole('USER')">-->
+<div sec:authorize="hasRole('USER')">
     <ul th:each="name : ${names}">
         <li><input type="text" name="userName" value="James Carrot" th:value="${name}" /></li>
         <!--<li><span th:text="${name}">!</span></li>&lt;!&ndash;&ndash;&gt;-->
     </ul>
-<!--</div>-->
+</div>
 
 <p th:text="${secret}">123</p>
 
