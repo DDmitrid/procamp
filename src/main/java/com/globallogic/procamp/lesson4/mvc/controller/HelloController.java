@@ -22,17 +22,54 @@ public class HelloController {
     public String hello() {
         return "hello";
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-   
+
+    @GetMapping("/greeting")
+    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "Andrii") String name, Model model) {
+        model.addAttribute("name", name);
+        
+        //        model.a
+        //        model.asMap().put("","");
+
+        //        Map<String, String> map = new HashMap<>();
+        //        map.put("smth", "value");
+        //        
+        //        model.mergeAttributes(map);
+
+        return "greeting";
+    }
+
+
+
+    @GetMapping("/welcome")
+    public ModelAndView welocome(@RequestParam(name = "name", required = false, defaultValue = "ProCamp") String name) {
+        ModelAndView modelAndView = new ModelAndView("welcome");
+        modelAndView.addObject("name", name);
+        
+        return modelAndView;
+    }
+
+
+    @GetMapping("/list")
+    public String displayList(ModelMap modelMap) {
+
+        List<String> names = Arrays.asList(
+                        "Denys Dvornyi",
+                        "Sergey Nechosov",
+                        "Dmitriy Malyarchuk",
+                        "Dmitry Dudin",
+                        "Yurii Vasylchuk",
+                        "Alexandr Garkusha"
+        );
+
+        modelMap.addAttribute("names", names);
+
+        return "list";
+    }
+
+    @ModelAttribute("secret")
+    public String getAttribute() {
+        return "Secret Data";
+    }
    
     @GetMapping("/login")
     public String login() {
