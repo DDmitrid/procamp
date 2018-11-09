@@ -2,18 +2,20 @@ package com.globallogic.procamp.lesson5.di;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
+@Profile("dev")
 @Configuration
-public class BookConfiguration {
+public class BookDevConfiguration {
 
     @Bean
-    @PaperBook
+    @AudioBook
     BookService getPaperBookService() {
         return new PaperBookService();
     }
-    
+
     @Bean
-    @AudioBook
+    @PaperBook
     BookService getAudioBookService() {
         return new AudioBookService();
     }

@@ -11,12 +11,10 @@ import com.globallogic.procamp.lesson5.dto.Book;
 @RequestMapping(value = "/di")
 public class BooksController {
 
-    @PaperBook
     @Autowired
+    @PaperBook
     private BookService bookService;
 
-    
-    
 //    public BooksController( BookService bookService) {
 //        this.bookService = bookService;
 //    }
