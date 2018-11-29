@@ -42,7 +42,7 @@ public class CollectorsInActionTest {
         persons.add(new Person(City.NIKOLAEV, "Petro", 21));
         persons.add(new Person(City.ODESSA, "Taras", 33));
         persons.add(new Person(City.NIKOLAEV, "Max", 33));
-        persons.add(new Person(City.ODESSA, "Max", 12));
+//        persons.add(new Person(City.ODESSA, "Max", 12));
     }
 
     // map name :: age

@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
@@ -27,6 +28,7 @@ public class CalculatorRulesTest {
     }
 
     @Test
+    @Ignore("errors are expected")
     public void name() {
         collector.checkThat("2 must be greater than 1", calculator.maxValue(1, 2), equalTo(2));
         collector.checkThat("2 must be greater than 1", calculator.maxValue(2, 3), equalTo(1));

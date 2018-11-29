@@ -13,7 +13,7 @@ public class NumberStreamsTest {
     @Test
     public void testCount() {
         
-        assertThat(numberStreams.count(), is(1));
+        assertThat(numberStreams.count(), is(1L));
     }
 
     @Test

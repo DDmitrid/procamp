@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import java.util.Optional;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class BookRepositoryTest extends BaseRunner {
     private BookMapper bookMapper= Mappers.getMapper(BookMapper.class);
 
     @Test
+    @Ignore
     public void testFindOne() {
 
         Optional<Book> bookOptional = bookRepository.findById(1);
@@ -44,6 +46,7 @@ public class BookRepositoryTest extends BaseRunner {
     }
 
     @Test
+    @Ignore
     public void testMapper() {
 
         Optional<Book> bookOptional = bookRepository.findById(1);
