@@ -5,6 +5,8 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Commit;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.globallogic.procamp.lesson12.entity.onetoone.bidirectional.BankAccountEntity;
 import com.globallogic.procamp.lesson12.entity.onetoone.bidirectional.CustomerEntity;
@@ -22,6 +24,8 @@ import com.globallogic.procamp.lesson12.repository.onetoone.mapsid.PostRepositor
 import com.globallogic.procamp.lesson12.repository.onetoone.unidirectional.PersonRepository;
 import com.globallogic.procamp.lesson12.tasks.BaseRunner;
 
+@Transactional
+@Commit
 public class OneToOne extends BaseRunner {
 
     @Autowired PersonRepository personRepository;

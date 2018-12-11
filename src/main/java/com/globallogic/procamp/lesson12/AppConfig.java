@@ -56,6 +56,7 @@ public class AppConfig {
     factory.setPackagesToScan("com.globallogic.procamp.lesson12.entity");
     factory.setDataSource(dataSource(latencySimulator));
     factory.setJpaProperties(jpaProperties());
+    factory.setMappingResources("querying/named_native_queries.xml");
     return factory;
   }
 

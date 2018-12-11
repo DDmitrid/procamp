@@ -17,7 +17,7 @@ public class HibernateBasicSqlFormatter implements MessageFormattingStrategy {
         }
         String template = "Hibernate:\n" 
                         + "==================================\n" 
-                        + " %s %s \n" 
+                        + " %s %s \n\n" 
                         + "  {elapsed: %sms}\n" 
                         + "================================";
         String batch = "batch".equals(category) ? "batch operation" : "";
